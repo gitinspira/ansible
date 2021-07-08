@@ -37,4 +37,4 @@
         name: https://github.com/oamg/convert2rhel/releases/download/v0.16/convert2rhel-0.16-1.el7.noarch.rpm
         state: present
     - name: Convert2rhel
-      shell: convert2rhel --auto-attach --username=PONERUSER --password=PONERPASSWORD -y
+      shell: convert2rhel --auto-attach --username=hbernal@inspiratls.com --password=Lunita07. -y
