@@ -1,0 +1,9 @@
+- hosts: centos-devel
+  become: yes
+  tasks:
+    - name: Actualizar todos los servidores CentOS de desarrollo
+      yum: 
+        name: '*'
+        state: latest
+        update_cache: yes
+        exclude: kernel*
