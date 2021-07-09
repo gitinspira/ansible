@@ -1,40 +1,37 @@
----
-- hosts: all
-  become: true
-  remote_user: root
+- hosts : todos
+  convertirse en : verdadero
+  usuario_remoto : root
 
-  vars:
-    LATESTVER: "0.21"
-    LATESTBUILD: "1"
-    GPGKEY: "https://www.redhat.com/security/data/fd431d51.txt"
+  vars :
+    ÚLTIMA VEZ : " 0.21 "
+    ÚLTIMA CONSTRUCCIÓN : " 1 "
+    GPGKEY : " https://www.redhat.com/security/data/fd431d51.txt "
 
-  tasks:
+  tareas :
 
-    - name: Validate distribution (CentOS or Oracle Linux)
-      meta: end_host
-      when: ansible_distribution != 'CentOS' and ansible_distribution != 'OracleLinux'
+    - nombre : valida la distribución (CentOS u Oracle Linux)
+      meta : end_host
+      cuando : ansible_distribution! = 'CentOS' y ansible_distribution! = 'OracleLinux'
 
-    - name: Validate Release Version (6.10, 7.9, 8.4)
-      meta: end_host
-      when: ansible_distribution_version != '6.10' and ansible_distribution_version != '7.9' and ansible_distribution_version != '8.4'
+    - nombre : Validar versión de lanzamiento (6.10, 7.9, 8.4)
+      meta : end_host
+      when : ansible_distribution_version! = '6.10' y ansible_distribution_version! = '7.9' y ansible_distribution_version! = '8.4'
 
-    - name: Download Red Hat GPG key
-      get_url:
-        url: "{{ GPGKEY }}"
-        dest: "/etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release"
+    - nombre : Descarga la clave GPG de Red Hat
+      get_url :
+        url : " {{GPGKEY}} "
+        dest : " / etc / pki / rpm-gpg / RPM-GPG-KEY-redhat-release "
 
-    - name: Add Convert2RHEL repofile
-      yum_repository:
-        name: convert2rhel
-        description: Convert2RHEL for OS {{ ansible_distribution_major_version }}
-        baseurl: "http://ftp.redhat.com/pub/redhat/convert2rhel/{{ ansible_distribution_major_version }}/os/"
-        enabled: yes
-        gpgcheck: yes
-        gpgkey: "file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release"
+    - nombre : Agregar archivo de repetición Convert2RHEL
+      yum_repository :
+        nombre : convert2rhel
+        descripción : Convert2RHEL para SO {{ansible_distribution_major_version}}
+        baseurl : " http://ftp.redhat.com/pub/redhat/convert2rhel/ {{ansible_distribution_major_version}} / os / "
+        habilitado : si
+        gpgcheck : sí
+        gpgkey : " archivo: /// etc / pki / rpm-gpg / RPM-GPG-KEY-redhat-release "
 
-    - name: Install convert2rhel for RHEL {{ ansible_distribution_major_version }} from yum repo
-      yum:
-        name: https://github.com/oamg/convert2rhel/releases/download/v0.16/convert2rhel-0.16-1.el7.noarch.rpm
-        state: present
-    - name: Convert2rhel
-      shell: convert2rhel --auto-attach --username=hbernal@inspiratls.com --password=Lunita07. -y
+    - nombre : Instale convert2rhel para RHEL {{ansible_distribution_major_version}} desde el repositorio de yum
+      mmm :
+        nombre : " convert2rhel "
+        estado : último
