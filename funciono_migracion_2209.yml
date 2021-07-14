@@ -14,4 +14,4 @@
         state: present
     - name: Executing Convertion
       shell: convert2rhel --auto-attach --username=NazGarBX --password=Inspir@2020 -y
-    -NA
+...
