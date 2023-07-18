@@ -2,6 +2,6 @@
     - all
   tasks:
     - action: ping
-    - shell: echo "hello world"
-      register: out
-    - debug: var=out
+    - name: Print a Message
+    - action:
+        msg:"Ping realizado"
