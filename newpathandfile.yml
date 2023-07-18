@@ -7,3 +7,8 @@
         state: directory
     - name: Crear nuevo archivo
       file: path=/etc/some_directory/tempfile.txt state=touch
+    - name: Agrega una línea a un archivo si el archivo no existe, sin pasar regexp
+      lineinfile:
+      path: /etc/some_directory/tempfile.txt
+      line: 192.168.0.146 Ansible.Controller.com
+      create: yes
