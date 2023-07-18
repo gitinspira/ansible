@@ -1,7 +1,7 @@
 - hosts:
     - all
   tasks:
-  - name: Create_a_new_user_named_Bob  		   # Nombre de la tarea en nuestro playbook.
-    user:   			                           # Este es el módulo que vamos a utilizar para creación de usuarios.  
-    name: Bob   		                         # Nombre del usuario que vamos a crear.
+  - name: Create_a_new_user_named_Bob
+    user:
+    name: Bob
     password: "{{ 'password123' | password_hash('sha512') }}"
