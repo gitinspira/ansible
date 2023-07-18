@@ -1,7 +1,22 @@
-- hosts:
-    - all
+---
+- name: Add new user to Linux server
+  hosts:
+      - all
+  become: yes
   tasks:
-    - name: Create_a_new_user_named_Bob
-        user:
-        name: Bob
-        password: "{{ 'password123' | password_hash('sha512') }}"
+    - name: Create a new user
+      user:
+        name: "{{ bob }}"
+        password: "{{ inspira | password_hash('sha512') }}"
+        state: present
+        createhome: yes
+        shell: /bin/bash
+#---
+#-name: Add new user to Linux server
+#  hosts:
+#    - all
+#  tasks:
+#    - name: Create_a_new_user_named_Bob
+#        user:
+#        name: Bob
+#        password: "{{ 'password123' | password_hash('sha512') }}"
