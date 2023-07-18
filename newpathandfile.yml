@@ -7,4 +7,4 @@
         state: directory
         mode: '0755'
     - name: Crear nuevo archivo
-  	  file: path=/etc/some_directory/tempfile.txt state=touch
+      file: path=/etc/some_directory/tempfile.txt state=touch
