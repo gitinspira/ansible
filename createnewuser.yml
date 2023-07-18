@@ -6,7 +6,7 @@
   tasks:
     - name: Create a new user
       user:
-        name: "{{ bob }}"
+        name: "bob"
         password: "{{ inspira | password_hash('sha512') }}"
         state: present
         createhome: yes
