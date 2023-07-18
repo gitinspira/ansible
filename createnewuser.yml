@@ -1,7 +1,7 @@
 - hosts:
     - all
   tasks:
-  - name: Create_a_new_user_named_Bob
-    user:
-    name: Bob
-    password: "{{ 'password123' | password_hash('sha512') }}"
+    - name: Create_a_new_user_named_Bob
+        user:
+        name: Bob
+        password: "{{ 'password123' | password_hash('sha512') }}"
