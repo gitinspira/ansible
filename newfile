@@ -1,0 +1,14 @@
+- hosts:
+    - all
+  tasks:
+    - name: Crea un directorio si este no existe
+      file:
+        path: /etc/some_directory
+        state: directory
+        mode: '0755'
+    - name: Cambia el propietario, grupo y permisos
+      file:
+        path: /etc/some_directory/foo.conf
+        owner: foo
+        group: foo
+        mode: '0644'
