@@ -1,20 +1,15 @@
 ---
 - hosts: all
   become: yes
-
   tasks:
     - name: Update packages
       yum:
         name: "*"
         state: latest
-
     - name: Install Convert2RHEL
-      #yum:
-      #  name: https://github.com/oamg/convert2rhel/releases/download/v0.16/convert2rhel-0.16-1.el7.noarch.rpm
-      #  state: present
-       yum:
-        name: convert2rhel
-        state: latest
+      yum:
+        name: https://github.com/oamg/convert2rhel/releases/download/v0.16/convert2rhel-0.16-1.el7.noarch.rpm
+        state: present
     - name: Executing Convertion
       shell: convert2rhel --auto-attach --username=ngarzon@inspirait.com --password=Inspir@2020 -y
 ...
